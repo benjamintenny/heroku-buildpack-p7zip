@@ -4,7 +4,7 @@ echo "-----> Installing heroku buildpack p7zip build 7z2107"
 BUILD_DIR=$1
 mkdir -p "$BUILD_DIR/vendor"
 VENDOR_DIR="$BUILD_DIR/vendor"
-curl "https://www.7-zip.org/a/7z2107-linux-x64.tar.xz" -o "7z2107-linux-x64.tar.xz"
+curl "https://www.7-zip.org/a/7z2107-linux-x64.tar.xz" -s -o "7z2107-linux-x64.tar.xz"
 mkdir -p "$VENDOR_DIR/p7zip.1"
 mkdir -p "$VENDOR_DIR/p7zip"
 tar xf "7z2107-linux-x64.tar.xz" -C "$VENDOR_DIR/p7zip.1"
