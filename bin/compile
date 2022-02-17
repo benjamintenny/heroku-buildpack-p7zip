@@ -15,6 +15,7 @@ ls -sh
 echo "Moving 7zz to new path"
 mv "$VENDOR_DIR/p7zip.1/7zz" "$VENDOR_DIR/p7zip/"
 rm -rf "$VENDOR_DIR/p7zip.1"
+rm -rf "7z2107-linux-x64.tar.xz"
 #mv "$VENDOR_DIR/7z2107-linux-x64" "$VENDOR_DIR/p7zip"
 PROFILE_PATH="$BUILD_DIR/.profile.d/7zz.sh"
 mkdir -p $(dirname $PROFILE_PATH)
