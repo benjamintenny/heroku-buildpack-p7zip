@@ -1,22 +1,18 @@
 #!/bin/sh
 
-echo "-----> Installing heroku buildpack p7zip"
+echo "-----> Installing heroku buildpack p7zip build 7z2107"
 BUILD_DIR=$1
 mkdir -p "$BUILD_DIR/vendor"
 VENDOR_DIR="$BUILD_DIR/vendor"
 curl "https://www.7-zip.org/a/7z2107-linux-x64.tar.xz" -o "7z2107-linux-x64.tar.xz"
-echo "1---------"
-ls -sh
 mkdir -p "$VENDOR_DIR/p7zip.1"
 mkdir -p "$VENDOR_DIR/p7zip"
 tar xf "7z2107-linux-x64.tar.xz" -C "$VENDOR_DIR/p7zip.1"
-echo "2---------"
-ls -sh
 echo "Moving 7zz to new path"
 mv "$VENDOR_DIR/p7zip.1/7zz" "$VENDOR_DIR/p7zip/"
+echo "Removing temporary files"
 rm -rf "$VENDOR_DIR/p7zip.1"
 rm -rf "7z2107-linux-x64.tar.xz"
-#mv "$VENDOR_DIR/7z2107-linux-x64" "$VENDOR_DIR/p7zip"
 PROFILE_PATH="$BUILD_DIR/.profile.d/7zz.sh"
 mkdir -p $(dirname $PROFILE_PATH)
 echo 'export PATH="$PATH:${HOME}/vendor/p7zip"' >> $PROFILE_PATH
